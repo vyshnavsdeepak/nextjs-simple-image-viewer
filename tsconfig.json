@@ -3,15 +3,12 @@
     "outDir": "./dist",
     "target": "es2016",
     "module": "esnext",
-    "declaration": true,
-    "declarationDir": "types",
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "removeComments": true,
+    "moduleResolution": "nodenext",
     "jsx": "react",
+    "strict": true,
     "esModuleInterop": true,
-    "typeRoots": ["index.d.ts", "node_modules/@types"]
+    "declaration": true,
+    "declarationDir": "./types"
   },
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"]
 }

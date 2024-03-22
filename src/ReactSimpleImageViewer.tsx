@@ -1,5 +1,6 @@
 import React, { CSSProperties, useCallback, useEffect, useState } from "react";
 import styles from "./styles.module.css";
+import Image from "next/image"
 
 interface IProps {
   src: string[];
@@ -22,7 +23,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
       if (nextIndex < 0) nextIndex = props.src.length - 1;
       setCurrentIndex(nextIndex);
     },
-    [currentIndex]
+    [currentIndex, props.src]
   );
 
   const handleClick = useCallback(
@@ -39,7 +40,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
         props.onClose?.();
       }
     },
-    [props.onClose]
+    [props.closeOnClickOutside, props.onClose]
   );
 
   const handleKeyDown = useCallback(
@@ -56,7 +57,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
         changeImage(1);
       }
     },
-    [props.onClose, changeImage]
+    [changeImage, props.onClose]
   );
 
   const handleWheel = useCallback(
@@ -84,7 +85,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
         document.removeEventListener("wheel", handleWheel);
       }
     };
-  }, [handleKeyDown, handleWheel]);
+  }, [handleKeyDown, handleWheel, props.disableScroll]);
 
   return (
     <div
@@ -124,7 +125,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
         onClick={handleClick}
       >
         <div className={`${styles.slide} react-simple-image-viewer__slide`}>
-          <img className={styles.image} src={props.src[currentIndex]} alt="" />
+          <Image src={props.src[currentIndex]} alt="" width={500} height={500} /> {/* Use Next.js Image component */}
         </div>
       </div>
     </div>
