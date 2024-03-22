@@ -1,2 +1,2 @@
-import ReactSimpleImageViewer from "./ReactSimpleImageViewer";
-export default ReactSimpleImageViewer;
+import NextSimpleImageViewer from "./NextSimpleImageViewer";
+export default NextSimpleImageViewer;

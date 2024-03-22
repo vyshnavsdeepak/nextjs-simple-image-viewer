@@ -14,7 +14,7 @@ interface IProps {
   rightArrowComponent?: JSX.Element;
 }
 
-const ReactSimpleImageViewer = (props: IProps) => {
+const NextSimpleImageViewer = (props: IProps) => {
   const [currentIndex, setCurrentIndex] = useState(props.currentIndex ?? 0);
 
   const changeImage = useCallback(
@@ -32,8 +32,8 @@ const ReactSimpleImageViewer = (props: IProps) => {
         return;
       }
 
-      const checkId = event.target.id === 'ReactSimpleImageViewer';
-      const checkClass = event.target.classList.contains('react-simple-image-viewer__slide');
+      const checkId = event.target.id === 'NextSimpleImageViewer';
+      const checkClass = event.target.classList.contains('next-simple-image-viewer__slide');
 
       if (checkId || checkClass) {
         event.stopPropagation();
@@ -89,14 +89,14 @@ const ReactSimpleImageViewer = (props: IProps) => {
 
   return (
     <div
-      id="ReactSimpleImageViewer"
-      className={`${styles.wrapper} react-simple-image-viewer__modal`}
+      id="NextSimpleImageViewer"
+      className={`${styles.wrapper} next-simple-image-viewer__modal`}
       onKeyDown={handleKeyDown}
       onClick={handleClick}
       style={props.backgroundStyle}
     >
       <span
-        className={`${styles.close} react-simple-image-viewer__close`}
+        className={`${styles.close} next-simple-image-viewer__close`}
         onClick={() => props.onClose?.()}
       >
         { props.closeComponent || "×" }
@@ -104,7 +104,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
 
       {props.src.length > 1 && (
         <span
-          className={`${styles.navigation} ${styles.prev} react-simple-image-viewer__previous`}
+          className={`${styles.navigation} ${styles.prev} next-simple-image-viewer__previous`}
           onClick={() => changeImage(-1)}
         >
           { props.leftArrowComponent || "❮" }
@@ -113,7 +113,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
 
       {props.src.length > 1 && (
         <span
-          className={`${styles.navigation} ${styles.next} react-simple-image-viewer__next`}
+          className={`${styles.navigation} ${styles.next} next-simple-image-viewer__next`}
           onClick={() => changeImage(1)}
         >
           { props.rightArrowComponent || "❯" }
@@ -121,10 +121,10 @@ const ReactSimpleImageViewer = (props: IProps) => {
       )}
 
       <div
-        className={`${styles.content} react-simple-image-viewer__modal-content`}
+        className={`${styles.content} next-simple-image-viewer__modal-content`}
         onClick={handleClick}
       >
-        <div className={`${styles.slide} react-simple-image-viewer__slide`}>
+        <div className={`${styles.slide} next-simple-image-viewer__slide`}>
           <Image src={props.src[currentIndex]} alt="" width={500} height={500} /> {/* Use Next.js Image component */}
         </div>
       </div>
@@ -132,4 +132,4 @@ const ReactSimpleImageViewer = (props: IProps) => {
   );
 };
 
-export default ReactSimpleImageViewer;
+export default NextSimpleImageViewer;

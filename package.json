@@ -1,5 +1,5 @@
 {
-  "name": "react-simple-image-viewer",
+  "name": "next-simple-image-viewer",
   "version": "1.2.2",
   "description": "Simple image viewer component for React",
   "main": "dist/index.cjs.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/specter256/react-simple-image-viewer.git"
+    "url": "https://github.com/specter256/next-simple-image-viewer.git"
   },
   "author": "Alexander Tarasov",
   "license": "MIT",

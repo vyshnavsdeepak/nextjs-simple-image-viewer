@@ -10,5 +10,5 @@ interface IProps {
     leftArrowComponent?: JSX.Element;
     rightArrowComponent?: JSX.Element;
 }
-declare const ReactSimpleImageViewer: (props: IProps) => React.JSX.Element;
-export default ReactSimpleImageViewer;
+declare const NextSimpleImageViewer: (props: IProps) => React.JSX.Element;
+export default NextSimpleImageViewer;
